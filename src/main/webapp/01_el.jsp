@@ -11,6 +11,7 @@
 	<%
 	out.print("Hello");
 	%><%--scriptlet --%>
-	${"Hello" }<%--Expression Languuage --%>
+	${"Hello" }
+	<%--Expression Languuage --%>
 </body>
 </html>
