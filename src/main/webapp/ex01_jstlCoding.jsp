@@ -27,5 +27,10 @@
 		}
 		%>
 	</select>
+	<select>
+		<c:forEach var="item" items="${list}">
+			<option>${item}</option>
+		</c:forEach>
+	</select>
 </body>
 </html>
