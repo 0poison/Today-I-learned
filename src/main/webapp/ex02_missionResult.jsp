@@ -8,21 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	request.getParameter("userid");
-	request.getParameter("pwd");
-	%>
-	회원님의 아이디와 비밀번호는 다음과 같습니다.
-	<br> 아이디:${param.userid}
-	<br> 비밀번호: ${param.pwd }
-	<br>
+	${param.userid }님
 	<c:choose>
-		<c:when test="${param.admin==1}">
-			<span style="color: red;">사용자</span>
-		</c:when>
-		<c:when test="${param.admin==2}">
-			<span style="color: green;">관리자</span>
-		</c:when>
+		<c:when test="${param.admin==1}">사용자로</c:when>
+		<c:otherwise>관리자로</c:otherwise>
 	</c:choose>
+	로그인 하셨습니다.
 </body>
 </html>
