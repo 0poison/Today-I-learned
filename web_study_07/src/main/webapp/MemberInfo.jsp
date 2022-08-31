@@ -48,10 +48,10 @@
 			<tr height="50">
 				<td align="center" colspan="2">
 					<button type="button"
-						onclick="location.href='MemberUpdateForm.jsp? id=<%=mbean.getId()%>'">회원
+						onclick="location.href='MemberUpdateForm.jsp?id=<%=mbean.getId()%>'">회원
 						수정</button> <!-- 개인정보가 넘어가야 하며 db에서 불러와 수정한다. -->
 					<button type="button"
-						onclick="location.href='MemberDeleteForm.jsp? id=<%=mbean.getId()%>'">회원
+						onclick="location.href='MemberDeleteForm.jsp?id=<%=mbean.getId()%>'">회원
 						삭제</button>
 					<button type="button" onclick="location.href='MemberList.jsp'">목록
 						보기</button>
