@@ -1,0 +1,16 @@
+create table memeberInfo(
+id varchar2(20),
+pass1 varchar2(20),
+email varchar2(50),
+tel varchar2(60),
+hobby varchar2(60),
+job varchar2(15),
+age varchar2(10),
+info varchar2(500)
+);
+
+commit;
+
+insert into memberInfo values('ezen01','1234','ezen01@ezen.com','010-1111-1111','운동1','개발자1','28','information1');
+insert into memberInfo values('ezen02','5678','ezen02@ezen.com','010-2222-2222','운동2','개발자2','29','information2');
+insert into memberInfo values('ezen03','9012','ezen03@ezen.com','010-3333-3333','운동3','개발자3','30','information3');
