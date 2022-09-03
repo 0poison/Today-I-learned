@@ -13,7 +13,7 @@
 </head>
 <body>
  <%
- String resourcePath = "\\message\\notice.txt";
+ String resourcePath = "notice.txt";
  char[] buff = new char[128];
  int len=-1;
  URL url=application.getResource(resourcePath);
