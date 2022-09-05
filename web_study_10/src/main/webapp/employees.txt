@@ -1,0 +1,9 @@
+create table employees(
+id varchar2(10) not null,
+pass varchar2(10) not null,
+name varchar2(24),
+lev char(1) default 'A', --A:운영자, B:일반 회원
+enter date default sysdate, --등록일
+gender char(2) default '1', --1:남자, 2:여자
+phone varchar2(30),
+primary key(id));
