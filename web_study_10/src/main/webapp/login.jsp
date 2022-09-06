@@ -61,6 +61,6 @@ td {
 		</table>
 
 	</form>
-
+	<div style="color: red; text-align: center;">${message}</div>
 </body>
 </html>

@@ -38,6 +38,7 @@ table.mainmenu td.login:hover {
 					href="login.do"
 					style="text-decoration: none;"
 				>로그인</a></td>
+				<!-- 링크를 연결하는 것은 GET방식 -->
 				<td style="width: 250px">사원 등록<br> <span style="color: red">(관리자로 로그인 후 사용가능)</span></td>
 				<td>마이페이지<br> <span style="color: red">(로그인 후 사용가능)</span></td>
 			</tr>
@@ -56,10 +57,10 @@ table.mainmenu td.login:hover {
 						<td class="login"><a
 							href="custom.do"
 							style="text-decoration: none;"
-						></a></td>
+						>사원 등록</a></td>
 					</c:when>
 					<c:when test="${result==3 }">
-						<td style="width: 300px">사원 등록<br> <span style="color: red">(관리자로 로그인 후 사용가능)</span>
+						<td style="width: 300px"><br> <span style="color: red">(관리자로 로그인 후 사용가능)</span>
 					</c:when>
 				</c:choose>
 				<td class="login"><a
@@ -69,6 +70,6 @@ table.mainmenu td.login:hover {
 			</tr>
 		</c:if>
 	</table>
-	<div style="color: red; text-align: center;">${message}</div>
+
 </body>
 </html>

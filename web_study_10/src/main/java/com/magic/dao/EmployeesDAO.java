@@ -29,7 +29,7 @@ public class EmployeesDAO {
 		Context initContext;
 		try {
 			initContext = new InitialContext();
-			DataSource ds = (DataSource) initContext.lookup("java:/comp/env/jdbc/myoracle");
+			DataSource ds = (DataSource) initContext.lookup("java:/comp/env/jdbc/Oracle11g");
 			conn = ds.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();

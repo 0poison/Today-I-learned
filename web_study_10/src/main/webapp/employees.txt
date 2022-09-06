@@ -7,3 +7,13 @@ enter date default sysdate, --등록일
 gender char(2) default '1', --1:남자, 2:여자
 phone varchar2(30),
 primary key(id));
+
+commit;
+
+insert into employees values('admin1','1111','홍길동','A',TO_DATE('2022/09/06','yy/mm/dd'),'1','010-1111-1111');
+insert into employees values('admin2','1111','홍길자','B',TO_DATE('2022/09/06','yy/mm/dd'),'1','010-1111-1111');
+insert into employees values('admin3','1111','홍길순','A',TO_DATE('2022/09/06','yy/mm/dd'),'1','010-1111-1111');
+
+commit;
+
+select * from
