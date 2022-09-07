@@ -16,7 +16,7 @@ public class MovieDAO {
 
 	private static MovieDAO instance = new MovieDAO();
 
-	public static void setInstance() {
+	public static void setInstance(MovieDAO instance) {
 		MovieDAO.instance = instance;
 	}
 
@@ -87,14 +87,17 @@ public class MovieDAO {
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, code);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				mvo.setTitle(rs.getString(1));
-				mvo.setPrice(rs.getInt(2));
-				mvo.setDirector(rs.getString(3));
-				mvo.setActor(rs.getString(4));
-				mvo.setPoster(rs.getString(5));
-				mvo.setSynopsis(rs.getString(6));
+				mvo = new MovieVO();
+				mvo.setCode(rs.getInt(1));
+				mvo.setTitle(rs.getString(2));
+				mvo.setPrice(rs.getInt(3));
+				mvo.setDirector(rs.getString(4));
+				mvo.setActor(rs.getString(5));
+				mvo.setPoster(rs.getString(6));
+				mvo.setSynopsis(rs.getString(7));
 			}
 
 		} catch (Exception e) {
@@ -104,6 +107,48 @@ public class MovieDAO {
 		}
 
 		return mvo;
+	}
+
+	public void deleteMovie(int code) {
+		String sql = "delete from movie where code=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, code);
+			pstmt.executeUpdate();
+			conn.close();
+			pstmt.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(pstmt, conn);
+		}
+	}
+
+	public void updateProduct(MovieVO mvo) {
+		String sql = "Update movie set code=? title-? price=? director=? actor=? poster=? synopsis=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mvo.getTitle());
+			pstmt.setInt(2, mvo.getPrice());
+			pstmt.setString(3, mvo.getDirector());
+			pstmt.setString(4, mvo.getActor());
+			pstmt.setString(5, mvo.getPoster());
+			pstmt.setString(6, mvo.getSynopsis());
+			pstmt.setInt(7, mvo.getCode());
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(pstmt, conn);
+		}
 	}
 
 }
