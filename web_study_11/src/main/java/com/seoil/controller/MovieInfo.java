@@ -17,14 +17,14 @@ import com.seoil.dto.MovieVO;
 /**
  * Servlet implementation class MovieUpdate
  */
-@WebServlet("/movieupdate.do")
-public class MovieUpdate extends HttpServlet {
+@WebServlet("/movieinfo.do")
+public class MovieInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public MovieUpdate() {
+	public MovieInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +37,14 @@ public class MovieUpdate extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String url = "movie/movieInfo.jsp";
+		int code = Integer.parseInt(request.getParameter("code"));
+		MovieDAO dao = MovieDAO.getInstance();
+		MovieVO mvo = dao.selectProductByCode(code);
+		request.setAttribute("movie", mvo);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 
 	/**

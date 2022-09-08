@@ -26,7 +26,7 @@
 			</tr>
 			<c:forEach var="movie" items="${mlist}">
 				<tr class="record">
-					<td>${movie.title}</td>
+					<td><a href="${pageContext.request.contextPath}/movieinfo.do?code=">${movie.title}</a></td>
 					<td>${movie.director}</td>
 					<td>${movie.actor}</td>
 					<td style="text-align: right">${movie.price}원</td>
