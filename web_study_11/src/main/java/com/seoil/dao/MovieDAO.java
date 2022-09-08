@@ -99,13 +99,11 @@ public class MovieDAO {
 				mvo.setPoster(rs.getString(6));
 				mvo.setSynopsis(rs.getString(7));
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(rs, pstmt, conn);
 		}
-
 		return mvo;
 	}
 
@@ -129,7 +127,7 @@ public class MovieDAO {
 	}
 
 	public void updateProduct(MovieVO mvo) {
-		String sql = "Update movie set code=? title-? price=? director=? actor=? poster=? synopsis=?";
+		String sql = "update movie set title=? price=? director=? actor=? poster=? synopsis=? where code=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

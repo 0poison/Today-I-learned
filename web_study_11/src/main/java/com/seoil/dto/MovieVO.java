@@ -1,7 +1,8 @@
 package com.seoil.dto;
 
 public class MovieVO {
-	private int code, price;
+	private int code;
+	private int price;
 	private String title;
 	private String actor;
 	private String poster;
