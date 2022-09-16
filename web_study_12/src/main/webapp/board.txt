@@ -1,0 +1,21 @@
+drop sequence board_seq;
+drop table board;
+
+create table board(
+num number(3) not null primary key, -- 사용자 아이디(PK)
+writer varchar2(20),
+email varchar2(50),
+subject varchar2(50),
+password varchar2(30),
+reg_date date,
+ref number(3),
+re_step number(3),
+re_level number(3),
+readcount number(3),
+content varchar2(500)
+);
+
+create sequence board_seq;
+commit;
+
+select * from board;
