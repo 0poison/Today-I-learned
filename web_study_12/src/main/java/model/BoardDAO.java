@@ -6,10 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 public class BoardDAO {
 	ResultSet rs;
 	Connection conn;
@@ -71,7 +67,7 @@ public class BoardDAO {
 		Vector<BoardBean> vec = new Vector<>();
 		getCon();
 		try {
-			String sql = "select * from(select A.*,Rownum Rnum from(select * from board order by ref desc,re_step asc)A)"
+			String sql = "SELECT * FROM(SELECT A.*,ROWNUM Rnum FROM (SELECT*FROM board ORDER BY ref DESC, re_level DESC) A)"
 					// A는 가상 테이블
 					+ "where Rnum >= ? and Rnum <= ?";
 			pstmt = conn.prepareStatement(sql);
@@ -137,13 +133,14 @@ public class BoardDAO {
 		int re_level = bean.getRe_level();
 		getCon();
 		try {
-			String levelsql = "update board set re_level=re_level+1 where ref=? and re_level > ?";
+			String levelsql = "update board set re_level=re_level+1 where ref=? and re_step> ?";
 			pstmt = conn.prepareStatement(levelsql);
 			pstmt.setInt(1, ref);
 			pstmt.setInt(2, re_level);
 			pstmt.executeUpdate();
 
 			String sql = "insert into board values(board_seq.nextval,?,?,?,?,sysdate,?,?,?,0,?)";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bean.getWriter());
 			pstmt.setString(2, bean.getEmail());
 			pstmt.setString(3, bean.getSubject());
@@ -205,8 +202,8 @@ public class BoardDAO {
 	}
 
 	public String getPass(int num) {
-		String pass = "";
 		getCon();
+		String pass = "";
 		try {
 			String sql = "select password from board where num=?";
 			pstmt = conn.prepareStatement(sql);
