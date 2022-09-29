@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="kr.co.ezenac.beans.TestBean"></bean>
+	<!-- 아이디의 차이 -->
+
+	<!-- 생성된 객체는 더 이상 생성되지 않는다. Singleton -->
+	<bean id="test1" class="kr.co.ezenac.beans.TestBean"></bean>
+
+	<bean id="test2" class="kr.co.ezenac.beans.TestBean"
+		lazy-init="true"></bean>
+	<!-- 로딩할 때 객체 생성을 하고 싶지 않으면 lazy-init="true"값을 넣는다. -->
+	<bean id="test3" class="kr.co.ezenac.beans.TestBean"
+		scope="prototype"></bean>
+</beans>
