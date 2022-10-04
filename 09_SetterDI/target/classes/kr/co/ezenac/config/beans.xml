@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="t1" class="kr.co.ezenac.beans.TestBean">
+		<property name="data1" value="100"></property>
+		<property name="data2" value="11.11"></property>
+		<property name="data3" value="true"></property>
+		<property name="data4" value="안녕하세요"></property>
+		<property name="data5">
+			<bean class="kr.co.ezenac.beans.DataBean"></bean>
+		</property>
+		<property name="data6" ref="data_bean"></property>
+	</bean>
+	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean"></bean>
+</beans>
