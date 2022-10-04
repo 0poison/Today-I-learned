@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="t1" class="kr.co.ezenac.beans.TestBean">
+		<property name="list1">
+			<list>
+				<value>문자열1</value>
+				<value>문자열2</value>
+				<value>문자열3</value>
+			</list>
+		</property>
+		<property name="list2">
+			<list>
+				<value type="int">100</value>
+				<value type="int">200</value>
+				<value type="int">300</value>
+			</list>
+		</property>
+		<property name="list3">
+			<list>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+			</list>
+		</property>
+
+		<property name="set1">
+			<set>
+				<value>문자열1</value>
+				<value>문자열2</value>
+				<value>문자열3</value>
+				<value>문자열4</value>
+				<value>문자열5</value>
+			</set>
+		</property>
+		<property name="set2">
+			<set>
+				<value type="int">100</value>
+				<value type="int">200</value>
+				<value type="int">300</value>
+				<value type="int">400</value>
+				<value type="int">500</value>
+			</set>
+		</property>
+		<property name="set3">
+			<set>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<ref bean="data_bean"></ref>
+			</set>
+		</property>
+		<property name="map1">
+			<map>
+				<entry key="a1" value="문자열"></entry>
+				<entry key="a2" value="1004" value-type="int"></entry>
+				<entry key="a3">
+					<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				</entry>
+				<entry key="a4" value-ref="data_bean"></entry>
+				<entry key="a5">
+					<list>
+						<value>문자열1</value>
+						<value>문자열2</value>
+						<value>문자열3</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+		<property name="prop1">
+			<props>
+				<prop key="p1">문자열1</prop>
+				<prop key="p2">문자열2</prop>
+				<prop key="p3">문자열3</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean"
+		scope="prototype"></bean>
+
+</beans>
