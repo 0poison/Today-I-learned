@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+						 
+	<bean id="obj1"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true"></bean>
+	
+	<bean id="obj2"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="100" type="int">
+		</constructor-arg>
+	</bean>
+	
+	<bean id="obj3"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="11.11" type="double">
+		</constructor-arg>
+	</bean>
+	
+	<bean id="obj4"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="Spring">
+		</constructor-arg>
+	</bean>
+	
+	<bean id="obj5"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="200"></constructor-arg>
+		<constructor-arg value="22.22" type="double"></constructor-arg>
+		<constructor-arg value="Spring" type="java.lang.String"></constructor-arg>
+	</bean>
+	
+	<bean id="obj6"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="22.22" type="double"></constructor-arg>
+		<constructor-arg value="Spring" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="200"></constructor-arg>
+	</bean>
+	
+	<bean id="obj7"
+	class="kr.co.ezenac.beans.TestBean1"
+	lazy-init="true">
+		<constructor-arg value="44.44" type="double" index="1"></constructor-arg>
+		<constructor-arg value="Spring" type="java.lang.String" index="2"></constructor-arg>
+		<constructor-arg value="200" index="0"></constructor-arg>
+	</bean>
+	 
+	 <bean id="test2"
+		class="kr.co.ezenac.beans.TestBean2"
+		lazy-init="true">
+		<constructor-arg>
+			<bean class="kr.co.ezenac.beans.DataBean"></bean>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="kr.co.ezenac.beans.DataBean"></bean>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean" scope="prototype"></bean>
+	<bean id="obj9" class="kr.co.ezenac.beans.TestBean2" lazy-init="true">
+		<constructor-arg ref="data_bean"></constructor-arg>
+		<constructor-arg ref="data_bean"></constructor-arg>
+	</bean>
+	
+	
+
+</beans>
