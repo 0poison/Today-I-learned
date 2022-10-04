@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+						 
+						 
+	<bean id="t1" class="kr.co.ezenac.beans.TestBean1"
+		lazy-init="true" init-method="bean1_init"></bean>
+		
+	<bean id="t2" class="kr.co.ezenac.beans.TestBean2"
+		lazy-init="true" init-method="bean2_init"></bean>
+	<bean class="kr.co.ezenac.processor.TestBeanPostProcessor"></bean>
+</beans>
