@@ -1,0 +1,13 @@
+create table member(
+name varcahr2(20),
+id varchar2(20),
+pw varchar2(10),
+phone1 varchar2(10),
+phone2 varchar2(10),
+phone3 varchar2(10),
+gender varchar2(10)
+);
+commit;
+insert into member values('홍길동01','hong01','1234','010-','1111','-1111','man');
+commit;
+select * from member;
